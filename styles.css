@@ -1,0 +1,64 @@
+html {
+  font-size: 62.5%;
+  --leftPos: 50%;
+  --topPos: 50%;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+a {
+  /*i originally put flex in this section, but forgot it needed to go in body. ANSWER, the javascript will be more complicated if we have to add a style. Lets initialize the property here in css*/
+  border: 1px solid black;
+  /*display: flex;
+  align-items: center;
+  justify-content: center;*/
+}
+
+.btn {
+  background-color: pink;
+  font-family: cursive;
+  padding: 2rem 4rem;
+  border: 0.1 solid black;
+  border-radius: 0.5rem;
+  box-shadow: 0.2rem 0.4rem 0.8rem rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+  color: black;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn span {
+  position: relative;
+  z-index: 1;
+}
+
+/*::before inserts something before. before and after are the only selectors that insert something. in this case we chose to put content to "" (nothing)*/
+.btn::before {
+  content: "";
+  position: absolute;
+  background-color: orangered;
+  width: 0rem;
+  height: 0rem;
+  top: var(--topPos)
+  left: var(--leftPos)
+  /*top and left bring the upper left corner to the center. transform translate can then be used to center the centroid*/
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  transition: width 0.5s, height 0.5s;
+}
+
+/*my instinct was to set hover on the before pseudo selector. hover, we need to set hover on the button instead.
+WAS .btn::before:hover
+IS .btn:hover::before
+*/
+.btn:hover::before {
+  width: 30rem;
+  height: 30rem;
+}
