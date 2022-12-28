@@ -17,6 +17,7 @@ btnEl.addEventListener("mouseover", (event) => {
   //document.querySelector(".btn::before").style.left = posX;
   document.querySelector("html").style.setProperty("--leftPos", newposX + "px");
   document.querySelector("html").style.setProperty("--topPos", newposY + "px");
+  //dont forget to include units + "px" when setting properties
   //this also works because we can access variables, but not ::before
   //btnEl.style.setProperty("--leftPos", newposX + "px");
   //btnEl.style.setProperty("--topPos", newposY + "px");
